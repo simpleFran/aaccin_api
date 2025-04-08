@@ -30,6 +30,10 @@ const fakeLocals = [
   "Recife/PE",
   "Fortaleza/CE",
   "Natal/RN",
+  "Pato Branco/PR",
+  "Rio Grande/RS",
+  "Divinópolis/MG",
+  "Arroio Grande/RS"
 ];
 
 const cultivationIds = [

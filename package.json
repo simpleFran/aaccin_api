@@ -10,6 +10,9 @@
     "test:watch": "vitest run --dir src/use-cases",
     "test:all": "vitest run"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
