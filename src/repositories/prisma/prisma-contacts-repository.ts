@@ -23,6 +23,20 @@ interface ContactWithCultivations extends Contact {
 const PER_PAGE = 20;
 
 export class PrismaContactsRepository implements ContactsRepository {
+  findById(id: string): Promise<ContactWithCultivations> {
+    return prisma.contact.findUnique({
+      where: {
+        id,
+      },
+      include: {
+        cultivations: {
+          include: {
+            cultivation: true,
+          },
+        },
+      },
+    }) as Promise<ContactWithCultivations>;
+  }
   async findByCultivationAll(
     cultivationId: string
   ): Promise<ContactWithCultivations[]> {

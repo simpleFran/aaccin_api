@@ -47,4 +47,5 @@ export interface ContactsRepository {
   findByCultivationAll(
     cultivationId: string
   ): Promise<ContactWithCultivations[]>;
+  findById(id: string): Promise<ContactWithCultivations>;
 }
