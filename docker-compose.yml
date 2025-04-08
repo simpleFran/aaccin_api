@@ -1,12 +1,16 @@
+version: '3.8'
+
 services:
-  api-solid-pg3:
+  postgres:
     image: bitnami/postgresql
+    container_name: postgres_container
     ports:
       - "5432:5432"
     env_file:
       - .env
     volumes:
       - postgres_data:/bitnami/postgresql
+    restart: unless-stopped
 
 volumes:
   postgres_data:
