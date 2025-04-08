@@ -1,0 +1,39 @@
+{
+  "name": "api-april",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "start:dev": "tsx --watch src/index.ts",
+    "build": "rimraf dist && tsup src/index.ts --format cjs,esm --dts --minify",
+    "test": "vitest run --dir src/use-cases",
+    "test:watch": "vitest run --dir src/use-cases",
+    "test:all": "vitest run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "A RESTful API for managing agriculture contacts, built with Express, TypeScript, Prisma and PostgreSQL",
+  "dependencies": {
+    "@faker-js/faker": "^9.6.0",
+    "@prisma/client": "^6.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "pg": "^8.14.1",
+    "rimraf": "^6.0.1",
+    "vitest": "^3.1.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.13.14",
+    "@vitest/expect": "^3.1.1",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.1.6",
+    "vitest-tsconfig-paths": "^3.4.1"
+  }
+}
