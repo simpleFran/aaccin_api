@@ -22,3 +22,16 @@
 
 
  
+## IMPORTANTÍSSIMO
+Sempre que quiser preservar os dados antes de mexer em containers, use este comando para fazer um backup completo do banco:
+
+
+docker exec -t <nome_do_container> pg_dump -U docker -d aaccin > backup.sql
+
+
+## NOMEAR VOLUMES NO docker-compose.yml
+
+
+
+## RESTAURAR BD POSTGRESQL
+cat backup.sql | docker exec -i aaccin_api-solid-pg3-1 psql -U docker -d aaccin
