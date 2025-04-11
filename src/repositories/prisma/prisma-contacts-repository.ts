@@ -13,7 +13,7 @@ interface CreateContactDTO {
   internal_contact: string;
   city: string;
   state: string;
-  phone:string;
+  phone: string;
   cultivationIds: string[];
 }
 interface ContactWithCultivations extends Contact {
@@ -127,6 +127,9 @@ export class PrismaContactsRepository implements ContactsRepository {
     const allContacts = await prisma.contact.findMany({
       skip: (page - 1) * perPage,
       take: perPage,
+      orderBy: {
+        name: "asc",
+      },
       include: {
         cultivations: {
           include: {
@@ -167,8 +170,7 @@ export class PrismaContactsRepository implements ContactsRepository {
     if (filter === "profession") {
       return await this.findByProfessionAll(query);
     } else if (filter === "cultivation") {
-      return  await this.findByCultivationAll(query)
-      
+      return await this.findByCultivationAll(query);
     }
     return [];
   }
